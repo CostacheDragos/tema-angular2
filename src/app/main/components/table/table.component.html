@@ -1,0 +1,35 @@
+<div class="table-container">
+    <div class="table-operations">
+        <button nz-button (click)="onAddClicked()" nzType="primary">
+          Add
+        </button>
+      </div>
+
+    <nz-table #basicTable [nzData]="citiesList" [nzPageSize]="8">
+        <thead>
+        <tr>
+            <th nzLeft>Name</th>
+            <th>Country</th>
+            <th>Population</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of basicTable.data">
+            <td nzLeft>{{ data.name }}</td>
+            <!-- ! pipe -->
+            <td>{{ data.country | uppercase }}</td>
+            <td>{{ data.population }}</td>
+            <td>
+                <span
+                class="edit-icon"
+                nz-icon
+                nzType="edit"
+                nzTheme="outline"
+                (click)="onEditClicked(data)"
+                ></span>
+            </td>
+        </tr>
+        </tbody>
+    </nz-table>
+</div>

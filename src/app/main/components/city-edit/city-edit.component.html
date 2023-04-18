@@ -1,0 +1,54 @@
+<nz-modal [(nzVisible)]="isVisible" (nzOnOk)="onOk()" (nzOnCancel)="onCancel()" [nzOkDisabled]="!cityEditForm.valid">
+    <ng-container *nzModalContent>
+        <form nz-form [formGroup]="cityEditForm" class="city-edit-form">
+            <nz-form-item>
+                <nz-form-control>
+                    <nz-input-group>
+                    <input
+                        type="text"
+                        nz-input
+                        formControlName="name"
+                        placeholder="City Name"
+                    />
+                    </nz-input-group>
+                    <div class="red-text" *ngIf="name?.errors?.['required']">
+                        City name is required!
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control>
+                    <nz-input-group>
+                    <input
+                        type="text"
+                        nz-input
+                        formControlName="country"
+                        placeholder="Country"
+                    />
+                    </nz-input-group>
+                    <div class="red-text" *ngIf="country?.errors?.['required']">
+                        Country name is required!
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control>
+                    <nz-input-group>
+                    <input
+                        type="number"
+                        nz-input
+                        formControlName="population"
+                        placeholder="Population"
+                    />
+                    </nz-input-group>
+                    <div class="red-text" *ngIf="population?.errors?.['required']">
+                        Population is required!
+                    </div>
+                    <div class="red-text" *ngIf="population?.errors?.['min']">
+                        The population must be a positive number!
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+        </form>
+    </ng-container>
+</nz-modal>

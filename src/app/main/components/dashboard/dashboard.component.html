@@ -1,0 +1,6 @@
+<div class="main-container">
+    <app-header></app-header>
+
+    <app-city-edit [isVisible]="isEditModalOpen" (closeModal)="isEditModalOpen = false"></app-city-edit>
+    <app-table (openEditModal)="onOpenEditModal()"></app-table>
+  </div>
